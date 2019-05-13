@@ -2,6 +2,7 @@ google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawLineChart1);
 google.charts.setOnLoadCallback(drawLineChart2);
 google.charts.setOnLoadCallback(drawScatter);
+google.charts.setOnLoadCallback(drawAreaChart1);
 
 function drawLineChart1() {
     var options = {
@@ -70,4 +71,21 @@ function drawScatter() {
     });
 }
 
+function drawAreaChart1() {
+    var options = {
+        isStacked: true,
+        legend: { position: 'bottom' },
+        hAxis: {title: 'Year'},
+        vAxis: {title: 'Million Baht'},
+        colors: ['#f9cceb', '#ccebf9']   
+    };
+
+    var chart = new google.visualization.AreaChart(document.getElementById('area1'));
+
+    $.get("./data/area1.csv", function(csvString) {
+        var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
+        var data = google.visualization.arrayToDataTable(arrayData);
+        chart.draw(data, options);
+    });
+}
 //test
