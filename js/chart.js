@@ -57,10 +57,6 @@ function drawScatter() {
             0: {
               type: 'linear',
               color: '#f9cceb',
-              lineWidth: 3,
-              opacity: 0.3,
-              showR2: true,
-              visibleInLegend: true
             }
         }   
     };
