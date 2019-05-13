@@ -73,3 +73,5 @@ function drawScatter() {
         chart.draw(data, options);
     });
 }
+
+//test
