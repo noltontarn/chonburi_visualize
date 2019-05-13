@@ -1,6 +1,7 @@
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawLineChart1);
 google.charts.setOnLoadCallback(drawLineChart2);
+google.charts.setOnLoadCallback(drawScatter);
 
 function drawLineChart1() {
     var options = {
