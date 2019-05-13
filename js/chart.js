@@ -5,6 +5,15 @@ google.charts.setOnLoadCallback(drawScatter);
 google.charts.setOnLoadCallback(drawAreaChart1);
 google.charts.setOnLoadCallback(drawAreaChart2);
 
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+
 function drawLineChart1() {
     var options = {
         //title: 'Budget and Revenue in tourism',
