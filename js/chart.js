@@ -49,9 +49,8 @@ function drawLineChart2() {
 
 function drawScatter() {
     var options = {
-        legend: { position: 'bottom' },
-        hAxis: {title: 'Visitors'},
-        vAxis: {title: 'Millions Baht'},
+        hAxis: {title: 'Revenue (Millions Baht)'},
+        vAxis: {title: 'Visitors'},
         colors: ['#ccebf9'],
         trendlines: {
             0: {
