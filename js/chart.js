@@ -35,4 +35,13 @@ function drawLineChart2() {
         var data = google.visualization.arrayToDataTable(arrayData);
         chart.draw(data, options);
     });
+
+    /*var data = google.visualization.arrayToDataTable([
+        ['year', 'revenue'],
+        ["2012-Q1",29898.48],
+        ["2012-Q2",21810.84],
+        ["2012-Q3",15925.68],
+        ["2012-Q4",32136.65],
+    ]);
+    chart.draw(data, options);*/
 }
