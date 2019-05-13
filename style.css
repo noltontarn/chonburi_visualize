@@ -43,6 +43,7 @@ hr.sep-2 {
     background-color: #00b9ff;
     overflow: hidden;
     width: 100%;
+    z-index: 999;
 }
   
   /* Style the links inside the navigation bar */
