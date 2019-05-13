@@ -45,3 +45,30 @@ function drawLineChart2() {
     ]);
     chart.draw(data, options);*/
 }
+
+function drawScatter() {
+    var options = {
+        legend: { position: 'bottom' },
+        hAxis: {title: 'Visitors'},
+        vAxis: {title: 'Millions Baht'},
+        colors: ['#ccebf9'],
+        trendlines: {
+            0: {
+              type: 'linear',
+              color: '#f9cceb',
+              lineWidth: 3,
+              opacity: 0.3,
+              showR2: true,
+              visibleInLegend: true
+            }
+        }   
+    };
+
+    var chart = new google.visualization.ScatterChart(document.getElementById('scatter'));
+
+    $.get("./data/scatter.csv", function(csvString) {
+        var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
+        var data = google.visualization.arrayToDataTable(arrayData);
+        chart.draw(data, options);
+    });
+}
