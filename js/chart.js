@@ -8,7 +8,7 @@ function drawLineChart1() {
         //title: 'Budget and Revenue in tourism',
         legend: { position: 'bottom' },
         hAxis: {title: 'Year'},
-        vAxis: {title: 'Millions Baht (Budget), Ten Thousands Millions Baht (Revenue)'},
+        vAxis: {title: 'Million Baht (Budget), Ten Thousand Million Baht (Revenue)'},
         colors: ['#f9cceb', '#ccebf9']   
     };
 
@@ -25,7 +25,7 @@ function drawLineChart2() {
     var options = {
         legend: { position: 'bottom' },
         hAxis: {title: 'Year'},
-        vAxis: {title: 'Millions Baht'},
+        vAxis: {title: 'Million Baht'},
         colors: ['#ccebf9']   
     };
 
@@ -49,7 +49,8 @@ function drawLineChart2() {
 
 function drawScatter() {
     var options = {
-        hAxis: {title: 'Revenue (Millions Baht)'},
+        legend: 'none',
+        hAxis: {title: 'Revenue (Million Baht)'},
         vAxis: {title: 'Visitors'},
         colors: ['#ccebf9'],
         trendlines: {
