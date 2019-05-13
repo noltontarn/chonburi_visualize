@@ -1,9 +1,13 @@
-google.charts.load('current', {'packages':['corechart']});
+google.charts.load('current', {
+    'packages':['corechart','geochart', 'controls'], 
+    'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+});
 google.charts.setOnLoadCallback(drawLineChart1);
 google.charts.setOnLoadCallback(drawLineChart2);
 google.charts.setOnLoadCallback(drawScatter);
 google.charts.setOnLoadCallback(drawAreaChart1);
 google.charts.setOnLoadCallback(drawAreaChart2);
+google.charts.setOnLoadCallback(drawRegionsMap);
 
 function myFunction() {
     var x = document.getElementById("myTopnav");
@@ -114,5 +118,39 @@ function drawAreaChart2() {
         var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
         var data = google.visualization.arrayToDataTable(arrayData);
         chart.draw(data, options);
+    });
+}
+
+function drawRegionsMap() {
+    
+    var dashboard = new google.visualization.Dashboard(document.getElementById('dashboard_div'));
+
+    var yearSelector = new google.visualization.ControlWrapper({
+        controlType: 'CategoryFilter',
+        containerId: 'filter_div',
+        options: {
+            filterColumnLabel: 'year',
+            ui: {
+                allowTyping: false,
+                allowMultiple: false,
+                allowNone: false
+            }
+        }
+    });
+
+    var mapChart = new google.visualization.ChartWrapper({
+        chartType: 'GeoChart',
+        containerId: 'regions_div',
+        options: {
+            colorAxis: {colors: ['#d1d4d6', '#ccebf9']}
+        }
+    });
+    
+    dashboard.bind(yearSelector, mapChart);
+
+    $.get("./data/geo.csv", function(csvString) {
+        var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
+        var data = google.visualization.arrayToDataTable(arrayData);
+        dashboard.draw(data);
     });
 }
