@@ -3,6 +3,7 @@ google.charts.setOnLoadCallback(drawLineChart1);
 google.charts.setOnLoadCallback(drawLineChart2);
 google.charts.setOnLoadCallback(drawScatter);
 google.charts.setOnLoadCallback(drawAreaChart1);
+google.charts.setOnLoadCallback(drawAreaChart2);
 
 function drawLineChart1() {
     var options = {
@@ -88,4 +89,21 @@ function drawAreaChart1() {
         chart.draw(data, options);
     });
 }
-//test
+
+function drawAreaChart2() {
+    var options = {
+        isStacked: true,
+        legend: { position: 'bottom' },
+        hAxis: {title: 'Year'},
+        vAxis: {title: 'Visitors'},
+        colors: ['#f9cceb', '#ccebf9']   
+    };
+
+    var chart = new google.visualization.AreaChart(document.getElementById('area2'));
+
+    $.get("./data/area2.csv", function(csvString) {
+        var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
+        var data = google.visualization.arrayToDataTable(arrayData);
+        chart.draw(data, options);
+    });
+}
