@@ -1,7 +1,8 @@
 google.charts.load('current', {
-    'packages':['corechart','geochart', 'controls'], 
+    'packages':['corechart','geochart', 'controls', 'bar'], 
     'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
 });
+google.charts.setOnLoadCallback(drawBarChart);
 google.charts.setOnLoadCallback(drawLineChart1);
 google.charts.setOnLoadCallback(drawLineChart2);
 google.charts.setOnLoadCallback(drawScatter);
@@ -17,6 +18,26 @@ function myFunction() {
       x.className = "topnav";
     }
   }
+
+function drawBarChart() {
+    var options = {
+        chart: {
+            legend: { position: 'bottom' },
+            hAxis: {title: 'Million Baht'},
+            vAxis: {title: 'Year'},
+            colors: ['#f9cceb', '#ccebf9']
+        },   
+        bars: 'horizontal'
+    };
+
+    var chart = new google.charts.Bar(document.getElementById('bar'));
+
+    $.get("./data/bar.csv", function(csvString) {
+        var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
+        var data = google.visualization.arrayToDataTable(arrayData);
+        chart.draw(data, options);
+    });
+}
 
 function drawLineChart1() {
     var options = {
