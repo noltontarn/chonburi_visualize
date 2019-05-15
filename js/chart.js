@@ -23,7 +23,7 @@ function drawBarChart() {
     var options = {
         legend: { position: 'bottom' },
         hAxis: {title: 'Million Baht'},
-        vAxis: {title: 'Year', format: 'y'},
+        vAxis: {title: 'Year', format: ''},
         colors: ['#f9cceb', '#ccebf9'],
         bars: 'horizontal'
     };
