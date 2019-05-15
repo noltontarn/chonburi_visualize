@@ -42,7 +42,7 @@ function drawLineChart1() {
         //title: 'Budget and Revenue in tourism',
         legend: { position: 'bottom' },
         hAxis: {title: 'Year'},
-        vAxis: {title: 'Million Baht (Budget), Ten Thousand Million Baht (Revenue)'},
+        vAxis: {title: 'Million Baht (Budget), Thousand Million Baht (Revenue)'},
         colors: ['#f9cceb', '#ccebf9']   
     };
 
