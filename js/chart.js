@@ -24,7 +24,7 @@ function drawBarChart() {
         legend: { position: 'bottom' },
         hAxis: {title: 'Million Baht'},
         vAxis: {title: 'Year', format: ''},
-        colors: ['#f9cceb', '#ccebf9'],
+        colors: ['#e1ccf9', '#ccebf9', '#ccccf9', '#ccf9e2' , '#f9f7cc', '#f9dfcc', '#f9cccc',],
         bars: 'horizontal'
     };
 
@@ -43,7 +43,7 @@ function drawLineChart1() {
         legend: { position: 'bottom' },
         hAxis: {title: 'Year'},
         vAxis: {title: 'Million Baht (Budget), Thousand Million Baht (Revenue)'},
-        colors: ['#f9cceb', '#ccebf9']   
+        colors: ['#f9cceb', '#ccebf9'] 
     };
 
     var chart = new google.visualization.LineChart(document.getElementById('linechart1'));
