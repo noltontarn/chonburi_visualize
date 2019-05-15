@@ -21,12 +21,10 @@ function myFunction() {
 
 function drawBarChart() {
     var options = {
-        chart: {
-            legend: { position: 'bottom' },
-            hAxis: {title: 'Million Baht'},
-            vAxis: {title: 'Year'},
-            colors: ['#f9cceb', '#ccebf9']
-        },   
+        legend: { position: 'bottom' },
+        hAxis: {title: 'Million Baht'},
+        vAxis: {title: 'Year', format: 'none'},
+        colors: ['#f9cceb', '#ccebf9'],
         bars: 'horizontal'
     };
 
@@ -35,7 +33,7 @@ function drawBarChart() {
     $.get("./data/bar.csv", function(csvString) {
         var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
         var data = google.visualization.arrayToDataTable(arrayData);
-        chart.draw(data, options);
+        chart.draw(data, google.charts.Bar.convertOptions(options));
     });
 }
 
